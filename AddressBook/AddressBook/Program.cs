@@ -40,14 +40,21 @@ namespace AddressBook
                     person.AddContact(newEntry);
                     break;
                 case "2":
+                    Console.WriteLine("Enter Name You Want to edit: ");
+                    string Name = Console.ReadLine();
+                    person.EditName(Name);
                     break;
                 case "3":
+                    Console.WriteLine("Enter Name You Want To Delete:- ");
+                    string Name2 = Console.ReadLine();
+                    person.DeleteEntries(Name2);
                     break;
                 case "4":
                     person.DisplayList();
                     break;
                 case "5":
-                    break;
+                    return;
+                    
 
                     Console.ReadLine();
             }
