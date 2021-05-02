@@ -15,7 +15,7 @@ namespace AddressBook
             string choice = Console.ReadLine();
 
             var person = new MainBook();
-           
+
             switch (choice)
             {
                 case "1":
@@ -40,8 +40,12 @@ namespace AddressBook
                     person.AddContact(newEntry);
                     break;
                 case "2":
+                    Console.WriteLine("Enter Name You Want to edit: ");
+                    string Name = Console.ReadLine();
+                    person.EditName(Name);
                     break;
                 case "3":
+
                     break;
                 case "4":
                     person.DisplayList();
@@ -49,8 +53,15 @@ namespace AddressBook
                 case "5":
                     break;
 
-                    Console.ReadLine();
-            }
+                    
+            }     
         }
     }
 }
+
+
+
+
+
+
+
