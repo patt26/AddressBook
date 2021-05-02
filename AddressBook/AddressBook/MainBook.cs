@@ -18,7 +18,7 @@ namespace AddressBook
         {
             foreach (var Entry in list)
             {
-                Console.WriteLine(Entry.FirstName);
+                Console.WriteLine(Entry.FirstName+" "+Entry.LastName+" "+Entry.PhoneNum+" "+Entry.Address+" "+Entry.City+" "+Entry.PinCode+" "+Entry.State+" " +Entry.EmailId);
             }
         }
     } 
