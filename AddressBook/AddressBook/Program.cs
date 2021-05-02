@@ -49,10 +49,12 @@ namespace AddressBook
                     person.AddContact(newEntry);
                     break;
                 case "2":
+
                     break;
                 case "3":
                     break;
                 case "4":
+                    person.DisplayList();
                     break;
                 case "5":
                     break;
