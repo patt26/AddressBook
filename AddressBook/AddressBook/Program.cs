@@ -3,16 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-//var person = new MainBook();
 
-////Console.WriteLine("Enter First Name");
-////string firstName = Console.ReadLine();
-////var newentry = new Entry(firstName);
-////person.AddContact(newentry);
-
-//person.DisplayList();
-//Console.ReadKey();
-//        }
 namespace AddressBook
 {
     class Program
@@ -53,11 +44,12 @@ namespace AddressBook
                 case "3":
                     break;
                 case "4":
+                    person.DisplayList();
                     break;
                 case "5":
                     break;
 
-
+                    Console.ReadLine();
             }
         }
     }
