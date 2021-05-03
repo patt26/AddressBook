@@ -61,6 +61,7 @@ namespace AddressBook
                 {
                     list.Remove(Entry);
                     Console.WriteLine("Deleted Succesfully");
+                    break;
                 }
             }
         }
