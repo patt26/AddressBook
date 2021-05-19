@@ -116,6 +116,44 @@ namespace AddressBook
                     dictionary.Add(BookName, newEntry);
                 }
         }
+        public static void Search()
+        {
+            
+            
+                Console.WriteLine("Enter Search Criteria::");
+                Console.WriteLine("1.By City\n 2.By State\n 3.Exit");
+                string option = Console.ReadLine();
+
+                 foreach (var element in dictionary)
+                 {
+                    switch (option)
+                    {
+                        case "1":
+                            Console.WriteLine("Enter City Name: ");
+                            string city = Console.ReadLine();
+                            if (element.Value.City.Equals(city))
+                            {
+                                Console.WriteLine("Entry found in {0}: " + element.Value.FirstName, city);
+                            }
+                            break;
+                        case "2":
+                            Console.WriteLine("Enter State Name");
+                            string state = Console.ReadLine();
+                            if (element.Value.State.Equals(state))
+                            {
+                                Console.WriteLine("Entry found in {0}: " + element.Value.FirstName, state);
+                            }
+                            break;
+                        case "3":
+                            return;
+                    }
+
+                 }
+
+
+
+
+        }
             
         public static void Save()
         {
