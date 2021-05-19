@@ -76,8 +76,47 @@ namespace AddressBook
                     Console.WriteLine("Deleted Succesfully");
                     break;
                 }
+                else
+                {
+                    Console.WriteLine("No contact found");
+                }
             }
         }
+        public static void Duplicate()
+        {
+            Console.WriteLine("Enter Name for Address Book: ");
+            string BookName = Console.ReadLine();
+            Console.Write("Enter First Name- ");
+            string firstName = Console.ReadLine();
+            foreach (var element in dictionary)
+
+                if (element.Key.Equals(BookName))
+                {
+                    Console.WriteLine("Address book is already Present try with Different Name");
+                }
+                else
+                {
+                    Console.Write("Enter Last Name- ");
+                    string lastName = Console.ReadLine();
+                    Console.Write("Enter Phone Number- ");
+                    string phoneNum = Console.ReadLine();
+
+                    Console.Write("Enter Address- ");
+                    string address = Console.ReadLine();
+                    Console.Write("Enter City Name- ");
+                    string city = Console.ReadLine();
+                    Console.Write("Enter Your Pincode- ");
+                    string pinCode = Console.ReadLine();
+                    Console.Write("Enter State- ");
+                    string state = Console.ReadLine();
+                    Console.Write("Enter Email ID- ");
+                    string emailId = Console.ReadLine();
+
+                    var newEntry = new Entry(firstName, lastName, phoneNum, address, city, pinCode, state, emailId);
+                    dictionary.Add(BookName, newEntry);
+                }
+        }
+            
         public static void Save()
         {
             Console.WriteLine("Enter Name for Address Book: ");
@@ -99,6 +138,8 @@ namespace AddressBook
             string state = Console.ReadLine();
             Console.Write("Enter Email ID- ");
             string emailId = Console.ReadLine();
+
+
 
             var newEntry = new Entry(firstName, lastName, phoneNum, address, city, pinCode, state, emailId);
             dictionary.Add(BookName, newEntry);

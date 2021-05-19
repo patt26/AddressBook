@@ -34,6 +34,9 @@ namespace AddressBook
                         break;
                     case "5":
                         return;
+                    case "6":
+                        MainBook.Duplicate();
+                        break;
 
 
                 }
