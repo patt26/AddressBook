@@ -82,20 +82,19 @@ namespace AddressBook
                 }
             }
         }
-        public void Duplicate()
+        public void Duplicate()  // TODO
         {
             Console.WriteLine("Enter Name for Address Book: ");
             string BookName = Console.ReadLine();
             Console.Write("Enter First Name- ");
             string firstName = Console.ReadLine();
             foreach (var element in dictionary)
-
+            {
                 if (element.Key.Equals(BookName))
                 {
                     Console.WriteLine("Address book is already Present try with Different Name");
                 }
-                else
-                {
+            }
                     Console.Write("Enter Last Name- ");
                     string lastName = Console.ReadLine();
                     Console.Write("Enter Phone Number- ");
@@ -114,7 +113,7 @@ namespace AddressBook
 
                     var newEntry = new Entry(firstName, lastName, phoneNum, address, city, pinCode, state, emailId);
                     dictionary.Add(BookName, newEntry);
-                }
+                
         }
         public void Search()
         {
@@ -122,52 +121,86 @@ namespace AddressBook
                 Console.WriteLine("1.By City\n 2.By State\n 3.Exit");
                 string option = Console.ReadLine();
 
-              foreach (var element in dictionary)
-              {
                     switch (option)
                     {
                         case "1":
                             Console.WriteLine("Enter City Name: ");
                             string city = Console.ReadLine();
+                        foreach (var element in dictionary)
+                        {
                             if (element.Value.City.Equals(city))
                             {
                                 Console.WriteLine("Entry found in {0}: " + element.Value.FirstName, city);
                             }
+                        }
                             break;
                         case "2":
                             Console.WriteLine("Enter State Name");
                             string state = Console.ReadLine();
+                        foreach (var element in dictionary)
+                        {
                             if (element.Value.State.Equals(state))
                             {
                                 Console.WriteLine("Entry found in {0}: " + element.Value.FirstName, state);
                             }
+                        }
                             break;
                         case "3":
                             return;
                     }
-
-              }
-
-
-
-
+        }
+        public void Count()
+        {
+            Console.WriteLine("Select Count criteria:\n 1:By City\n 2:By State\n 3:Exit\n ");
+            string choice = Console.ReadLine();
+            int counter = 0;
+            int counter1 = 0;
+                        
+                switch (choice)
+                {
+                    case "1":
+                        Console.WriteLine("Enter City Name: ");
+                        string city = Console.ReadLine();
+                        foreach (var element in dictionary)
+                        {
+                            if (element.Value.City.Equals(city))
+                            {
+                                counter++;
+                            }
+                        }
+                        Console.WriteLine("Entries Found in {0} are {1}",city,counter);
+                        break;
+                    case "2":
+                        Console.WriteLine("Enter State Name: ");
+                        string state = Console.ReadLine();
+                        foreach (var element in dictionary)
+                        {
+                            if (element.Value.State.Equals(state))
+                            {
+                                counter1++;
+                            }
+                        }
+                        Console.WriteLine("Entries Found in {0} are {1}",state,counter1);
+                        break;
+                    case "3":
+                        return;
+                }
         }
         public void View()
         {
             Console.WriteLine("Enter Name of the person: ");
             string name = Console.ReadLine();
 
-            foreach(var element in dictionary)
+            foreach (var element in dictionary)
             {
                 if (element.Value.FirstName.Equals(name))
                 {
                     Console.WriteLine("{0}'s city : {1} and Its state is : {2}", name, element.Value.City, element.Value.State);
                 }
-                else
-                {
-                    Console.WriteLine("Entered person is not in records!! ");
-                }
             }
+            Console.WriteLine("Entered person is not in records!! ");  // TODO  (need to find method that eliminates <== this line after sucessfull execution.)
+                
+            
         }
             
         public void Save()
