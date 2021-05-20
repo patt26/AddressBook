@@ -11,7 +11,7 @@ namespace AddressBook
         static void Main(string[] args)
         {
             Console.WriteLine("##---Welcome To Address Book---##");
-            Console.WriteLine("Select Options\n 1:Add new Entry\n 2:Edit Entry\n 3:Delete Entry\n 4:Display Entry\n 5:Exit\n 6:Search");
+            Console.WriteLine("Select Options\n 1:Add new Entry\n 2:Edit Entry\n 3:Delete Entry\n 4:Display Entry\n 5:Search\n 6:View Person By City and State\n 7:Exit");
             string choice = Console.ReadLine();
             var person = new MainBook();
             while (true)
@@ -20,31 +20,34 @@ namespace AddressBook
                 switch (choice)
                 {
                     case "1":
-                        MainBook.Save();
+                        person.Save();
                         break;
                     case "2":
-                        MainBook.EditName();
+                        person.EditName();
                         break;
                     case "3":
                        
-                        MainBook.DeleteEntries();
+                        person.DeleteEntries();
                         break;
                     case "4":
                         person.DisplayList();
                         break;
-                    case "5":
+                    case "7":
                         return;
                     case "":
-                        MainBook.Duplicate();
+                        person.Duplicate();
+                        break;
+                    case "5":
+                        person.Search();
                         break;
                     case "6":
-                        MainBook.Search();
+                        person.View();
                         break;
 
 
                 }
 
-                Console.WriteLine("Select Options\n 1:Add new Entry\n 2:Edit Entry\n 3:Delete Entry\n 4:Display Entry\n 5:Exit\n 6:Search");
+                Console.WriteLine("Select Options\n 1:Add new Entry\n 2:Edit Entry\n 3:Delete Entry\n 4:Display Entry\n 5:Search\n 6:View Person By City and State\n 7:Exit");
                 choice = Console.ReadLine();
             
                 

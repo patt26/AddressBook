@@ -25,7 +25,7 @@ namespace AddressBook
         }
         
 
-        public static void EditName()
+        public void EditName()
         {
             Console.WriteLine("Available Address Books: ");
             foreach(var key in dictionary)
@@ -64,7 +64,7 @@ namespace AddressBook
                 
             }
         }
-        public static void DeleteEntries()
+        public void DeleteEntries()
         {
             Console.WriteLine("Enter Name You Want To Delete:- ");
             string Name2 = Console.ReadLine();
@@ -82,7 +82,7 @@ namespace AddressBook
                 }
             }
         }
-        public static void Duplicate()
+        public void Duplicate()
         {
             Console.WriteLine("Enter Name for Address Book: ");
             string BookName = Console.ReadLine();
@@ -116,16 +116,14 @@ namespace AddressBook
                     dictionary.Add(BookName, newEntry);
                 }
         }
-        public static void Search()
+        public void Search()
         {
-            
-            
                 Console.WriteLine("Enter Search Criteria::");
                 Console.WriteLine("1.By City\n 2.By State\n 3.Exit");
                 string option = Console.ReadLine();
 
-                 foreach (var element in dictionary)
-                 {
+              foreach (var element in dictionary)
+              {
                     switch (option)
                     {
                         case "1":
@@ -148,14 +146,31 @@ namespace AddressBook
                             return;
                     }
 
-                 }
+              }
 
 
 
 
         }
+        public void View()
+        {
+            Console.WriteLine("Enter Name of the person: ");
+            string name = Console.ReadLine();
+
+            foreach(var element in dictionary)
+            {
+                if (element.Value.FirstName.Equals(name))
+                {
+                    Console.WriteLine("{0}'s city : {1} and Its state is : {2}", name, element.Value.City, element.Value.State);
+                }
+                else
+                {
+                    Console.WriteLine("Entered person is not in records!! ");
+                }
+            }
+        }
             
-        public static void Save()
+        public void Save()
         {
             Console.WriteLine("Enter Name for Address Book: ");
             string BookName = Console.ReadLine();
@@ -176,8 +191,6 @@ namespace AddressBook
             string state = Console.ReadLine();
             Console.Write("Enter Email ID- ");
             string emailId = Console.ReadLine();
-
-
 
             var newEntry = new Entry(firstName, lastName, phoneNum, address, city, pinCode, state, emailId);
             dictionary.Add(BookName, newEntry);
