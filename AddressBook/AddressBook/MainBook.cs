@@ -8,8 +8,8 @@ namespace AddressBook
 {
     class MainBook
     {
-        public static List<Entry> list = new List<Entry>();
-        public static Dictionary<string, Entry> dictionary = new Dictionary<string, Entry>();
+        public List<Entry> list = new List<Entry>();
+        public Dictionary<string, Entry> dictionary = new Dictionary<string, Entry>();
         public void Add(Entry contact)
         {
             list.Add(contact);
@@ -197,10 +197,22 @@ namespace AddressBook
                 {
                     Console.WriteLine("{0}'s city : {1} and Its state is : {2}", name, element.Value.City, element.Value.State);
                 }
+                //else
+                //{
+                //    Console.WriteLine("Entered person is not in records!! "); // TODO
+                //}
             }
-            Console.WriteLine("Entered person is not in records!! ");  // TODO  (need to find method that eliminates <== this line after sucessfull execution.)
-                
-            
+
+                  
+             
+        }
+        public void SortName()
+        {
+            Dictionary<string, Entry> sort = dictionary.OrderBy(x => x.Value.FirstName).ToDictionary(x => x.Key, x => x.Value);
+            foreach(var element in sort)
+            {
+                Console.WriteLine("{0}, {1}",element.Value.FirstName,element.Value.LastName);
+            }
         }
             
         public void Save()

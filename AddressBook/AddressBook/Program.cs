@@ -11,7 +11,7 @@ namespace AddressBook
         static void Main(string[] args)
         {
             Console.WriteLine("##---Welcome To Address Book---##");
-            Console.WriteLine("Select Options\n 1:Add new Entry\n 2:Edit Entry\n 3:Delete Entry\n 4:Display Entry\n 5:Search\n 6:View Person By City and State\n 7:Counter\n 8:Exit");
+            Console.WriteLine("Select Options\n 1:Add new Entry\n 2:Edit Entry\n 3:Delete Entry\n 4:Display Entry\n 5:Search\n 6:View Person By City and State\n 7:Counter\n 8:Sort\n 9:Exit");
             string choice = Console.ReadLine();
             var person = new MainBook();
             while (true)
@@ -32,7 +32,7 @@ namespace AddressBook
                     case "4":
                         person.DisplayList();
                         break;
-                    case "8":
+                    case "9":
                         return;
                     case "":
                         person.Duplicate();
@@ -46,11 +46,14 @@ namespace AddressBook
                     case "7":
                         person.Count();
                         break;
+                    case "8":
+                        person.SortName();
+                        break;
 
 
                 }
 
-                Console.WriteLine("Select Options\n 1:Add new Entry\n 2:Edit Entry\n 3:Delete Entry\n 4:Display Entry\n 5:Search\n 6:View Person By City and State\n 7:Counter\n 8:Exit");
+                Console.WriteLine("Select Options\n 1:Add new Entry\n 2:Edit Entry\n 3:Delete Entry\n 4:Display Entry\n 5:Search\n 6:View Person By City and State\n 7:Counter\n 8:Sort\n 9:Exit");
                 choice = Console.ReadLine();
             
                 
