@@ -239,6 +239,7 @@ namespace AddressBook
 
             var newEntry = new Entry(firstName, lastName, phoneNum, address, city, pinCode, state, emailId);
             dictionary.Add(BookName, newEntry);
+            FileIo.WriteToText(dictionary);
         }
        
     } 
