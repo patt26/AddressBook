@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -7,10 +8,11 @@ using System.Threading.Tasks;
 
 namespace AddressBook
 {
-    class FileIo // TODO
+    class FileIo 
     {
         const string TEXT = @"C:\Users\prat\source\Assignment\AddressBook\AddressBook\AddressBook\StoreText.txt";
         const string CSV = @"C:\Users\prat\source\Assignment\AddressBook\AddressBook\AddressBook\StoreCSV.csv";
+        const string JSON = @"C:\Users\prat\source\Assignment\AddressBook\AddressBook\AddressBook\StoreJason.json";
         public static void WriteToText(Dictionary<string, Entry> dictionary)
         {
             if (File.Exists(TEXT))
@@ -29,7 +31,7 @@ namespace AddressBook
 
         public static void WriteToCSV(Dictionary<string, Entry> dictionary)
         {
-            if (File.Exists(TEXT))
+            if (File.Exists(CSV))
             {
                 using (TextWriter tw = File.AppendText(CSV))
                 {
@@ -40,6 +42,45 @@ namespace AddressBook
                     }
 
                 }
+            }
+        }
+        public static void WriteToJason(Dictionary<string,Entry> dictionary)
+        {
+            if (File.Exists(JSON))
+            {
+                JsonSerializer json = new JsonSerializer();
+                using (StreamWriter sw = new StreamWriter(JSON)) 
+                using (JsonWriter jw = new JsonTextWriter(sw))
+                {
+                    json.Serialize(sw, dictionary);
+                }
+                Console.WriteLine("Successfully writen in JSON File");
+            }
+            else
+            {
+                Console.WriteLine("No file found!!");
+            }
+        }
+        public static void ReadFromJson()
+        {
+            if (File.Exists(JSON))
+            {
+                Dictionary<string, Entry> dictionary = JsonConvert.DeserializeObject<Dictionary<string, Entry>>(File.ReadAllText(JSON));
+                foreach(var element in dictionary)
+                {
+                    Console.Write("\n" + element.Value.FirstName);
+                    Console.Write("\n" + element.Value.LastName);
+                    Console.Write("\n" + element.Value.Address);
+                    Console.Write("\n" + element.Value.City);
+                    Console.Write("\n" + element.Value.State);
+                    Console.Write("\n" + element.Value.PinCode);
+                    Console.Write("\n" + element.Value.PhoneNum);
+                    Console.Write("\n" + element.Value.EmailId);
+                }
+            }
+            else
+            {
+                Console.WriteLine("No file Found!!");
             }
         }
     }
